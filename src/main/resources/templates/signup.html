@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  
+    th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>this is home page</title>
+</head>
+<body>
+<section>
+<div class="container">
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<div class="my-card">
+<div th:if="${message}" class="alert text-center" th:classappend=" ${message.type}" role="alert">
+  <p th:text="${message.content}"></p>
+</div>
+
+
+   
+   
+<h1 class="text-center">Register Here</h1>
+<form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+<!-- name field -->
+ <div class="form-group">
+ 
+    <label for="name_field">Your Name</label>
+    <input 
+   
+     name="name"
+    type="test" 
+    class="form-control"
+     id="name_field" 
+    aria-describedby="emailHelp" 
+    placeholder="Enter here"
+    required
+    th:value="${user.name}"
+    
+    
+    />
+    
+    </div>
+
+<!-- email field -->
+ 
+<div class="form-group">
+ 
+    <label for="email_field">Your Email</label>
+    <input 
+    name="email"
+    
+    type="email" 
+    class="form-control"
+     id="email_field" 
+    aria-describedby="emailHelp" 
+    placeholder="Enter here"
+    required
+    th:value="${user.email}"
+    
+    />
+    
+    </div>
+    
+    
+    <!-- password  -->
+    <div class="form-group">
+ 
+    <label for="password_field">Your Password</label>
+    <input
+     name="password"
+    type="password" 
+    class="form-control"
+     id="password_field" 
+    aria-describedby="emailHelp" 
+    placeholder="Enter here"
+    required
+    
+    
+    />
+    
+    </div>
+    
+    <!-- user about field -->
+    <div class="form-group">
+    <textarea name="about" th:value="${user.about}" placeholder="Enter something yourself" rows="10" class="form-control"></textarea>
+    
+    </div>
+    
+    
+    <!-- Termas and condition aggrement -->
+    
+    <div class="form-group form-check">
+    <input type="checkbox"
+    name="agreement"
+    class="form-check-input"
+    id="agreement"
+    />
+    <label for="agreement">Accept term and conditions</label>
+    
+    
+    
+    </div>
+    <div class="container text-center">
+    <button type="submit" class="btn bg-primary text-white  btn-block">
+    Submit
+    </button>
+     <button type="reset" class="btn bg-warning text-white btn-block">
+    Reset
+    </button>
+    
+    
+    </div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+</body>
+</html>
